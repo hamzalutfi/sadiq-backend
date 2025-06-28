@@ -1,0 +1,118 @@
+{
+  "info": {
+    "_postman_id": "d1e1b1c2-1234-5678-9101-abcdefabcdef",
+    "name": "Sadiq Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for Sadiq Backend API with dummy data."
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        { "name": "Register", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123\",\n  \"phoneNumber\": \"1234567890\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/auth/register", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "register"] } } },
+        { "name": "Login", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/auth/login", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "login"] } } },
+        { "name": "Logout", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/auth/logout", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "logout"] } } },
+        { "name": "Get Me", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/auth/me", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "me"] } } },
+        { "name": "Verify Email", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/auth/verify-email/{{token}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "verify-email", "{{token}}"] } } },
+        { "name": "Forgot Password", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"email\": \"john@example.com\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/auth/forgot-password", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "forgot-password"] } } },
+        { "name": "Reset Password", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"password\": \"NewPassword123\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/auth/reset-password/{{resettoken}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "reset-password", "{{resettoken}}"] } } },
+        { "name": "Update Password", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"currentPassword\": \"Password123\",\n  \"newPassword\": \"NewPassword123\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/auth/update-password", "host": ["http://localhost:5000"], "path": ["api", "v1", "auth", "update-password"] } } }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        { "name": "Get Profile", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/users/profile", "host": ["http://localhost:5000"], "path": ["api", "v1", "users", "profile"] } } },
+        { "name": "Update Profile", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Jane Doe\",\n  \"phoneNumber\": \"9876543210\",\n  \"address\": \"123 Main St\",\n  \"preferences\": {}\n}" }, "url": { "raw": "http://localhost:5000/api/v1/users/profile", "host": ["http://localhost:5000"], "path": ["api", "v1", "users", "profile"] } } },
+        { "name": "Update Email", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"newEmail\": \"jane@example.com\",\n  \"password\": \"Password123\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/users/email", "host": ["http://localhost:5000"], "path": ["api", "v1", "users", "email"] } } },
+        { "name": "Delete Account", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"password\": \"Password123\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/users/account", "host": ["http://localhost:5000"], "path": ["api", "v1", "users", "account"] } } },
+        { "name": "Upload Profile Image", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "formdata", "formdata": [ { "key": "image", "type": "file", "src": "" } ] }, "url": { "raw": "http://localhost:5000/api/v1/users/profile-image", "host": ["http://localhost:5000"], "path": ["api", "v1", "users", "profile-image"] } } }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        { "name": "Get All Products", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/products", "host": ["http://localhost:5000"], "path": ["api", "v1", "products"] } } },
+        { "name": "Create Product", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Sample Product\",\n  \"price\": 99.99,\n  \"category\": \"{{categoryId}}\",\n  \"description\": \"A great product\",\n  \"productType\": \"physical\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/products", "host": ["http://localhost:5000"], "path": ["api", "v1", "products"] } } },
+        { "name": "Get Product", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/products/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "products", "{{id}}"] } } },
+        { "name": "Update Product", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Product\",\n  \"price\": 79.99\n}" }, "url": { "raw": "http://localhost:5000/api/v1/products/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "products", "{{id}}"] } } },
+        { "name": "Delete Product", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/products/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "products", "{{id}}"] } } },
+        { "name": "Get Products by Category", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/products/category/{{categorySlug}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "products", "category", "{{categorySlug}}"] } } },
+        { "name": "Add Review", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"rating\": 5,\n  \"comment\": \"Excellent!\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/products/{{id}}/reviews", "host": ["http://localhost:5000"], "path": ["api", "v1", "products", "{{id}}", "reviews"] } } }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        { "name": "Get All Categories", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/categories", "host": ["http://localhost:5000"], "path": ["api", "v1", "categories"] } } },
+        { "name": "Create Category", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Electronics\",\n  \"slug\": \"electronics\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/categories", "host": ["http://localhost:5000"], "path": ["api", "v1", "categories"] } } },
+        { "name": "Get Category", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/categories/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "categories", "{{id}}"] } } },
+        { "name": "Update Category", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Category\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/categories/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "categories", "{{id}}"] } } },
+        { "name": "Delete Category", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/categories/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "categories", "{{id}}"] } } }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        { "name": "Get Cart", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/cart", "host": ["http://localhost:5000"], "path": ["api", "v1", "cart"] } } },
+        { "name": "Clear Cart", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/cart", "host": ["http://localhost:5000"], "path": ["api", "v1", "cart"] } } },
+        { "name": "Add to Cart", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"productId\": \"{{productId}}\",\n  \"quantity\": 1\n}" }, "url": { "raw": "http://localhost:5000/api/v1/cart/items", "host": ["http://localhost:5000"], "path": ["api", "v1", "cart", "items"] } } },
+        { "name": "Update Cart Item", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"quantity\": 2\n}" }, "url": { "raw": "http://localhost:5000/api/v1/cart/items/{{productId}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "cart", "items", "{{productId}}"] } } },
+        { "name": "Remove from Cart", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/cart/items/{{productId}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "cart", "items", "{{productId}}"] } } },
+        { "name": "Apply Coupon", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"couponCode\": \"DISCOUNT10\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/cart/coupon", "host": ["http://localhost:5000"], "path": ["api", "v1", "cart", "coupon"] } } },
+        { "name": "Remove Coupon", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/cart/coupon", "host": ["http://localhost:5000"], "path": ["api", "v1", "cart", "coupon"] } } }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        { "name": "Get Orders", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/orders", "host": ["http://localhost:5000"], "path": ["api", "v1", "orders"] } } },
+        { "name": "Create Order", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"cartId\": \"{{cartId}}\",\n  \"shippingAddress\": \"123 Main St\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/orders", "host": ["http://localhost:5000"], "path": ["api", "v1", "orders"] } } },
+        { "name": "Get Order", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/orders/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "orders", "{{id}}"] } } },
+        { "name": "Cancel Order", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/orders/{{id}}/cancel", "host": ["http://localhost:5000"], "path": ["api", "v1", "orders", "{{id}}", "cancel"] } } },
+        { "name": "Request Refund", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/orders/{{id}}/refund", "host": ["http://localhost:5000"], "path": ["api", "v1", "orders", "{{id}}", "refund"] } } }
+      ]
+    },
+    {
+      "name": "Offers",
+      "item": [
+        { "name": "Get Active Offers", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/offers/active", "host": ["http://localhost:5000"], "path": ["api", "v1", "offers", "active"] } } },
+        { "name": "Get All Offers", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/offers", "host": ["http://localhost:5000"], "path": ["api", "v1", "offers"] } } },
+        { "name": "Create Offer", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"title\": \"Summer Sale\",\n  \"discount\": 20\n}" }, "url": { "raw": "http://localhost:5000/api/v1/offers", "host": ["http://localhost:5000"], "path": ["api", "v1", "offers"] } } },
+        { "name": "Get Offer", "request": { "method": "GET", "header": [ { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/offers/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "offers", "{{id}}"] } } },
+        { "name": "Update Offer", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"title\": \"Winter Sale\",\n  \"discount\": 25\n}" }, "url": { "raw": "http://localhost:5000/api/v1/offers/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "offers", "{{id}}"] } } },
+        { "name": "Delete Offer", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/offers/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "offers", "{{id}}"] } } }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        { "name": "Revenue Analytics", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/analytics/revenue", "host": ["http://localhost:5000"], "path": ["api", "v1", "analytics", "revenue"] } } },
+        { "name": "Product Analytics", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/analytics/products", "host": ["http://localhost:5000"], "path": ["api", "v1", "analytics", "products"] } } },
+        { "name": "Customer Analytics", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/analytics/customers", "host": ["http://localhost:5000"], "path": ["api", "v1", "analytics", "customers"] } } },
+        { "name": "Conversion Analytics", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/analytics/conversion", "host": ["http://localhost:5000"], "path": ["api", "v1", "analytics", "conversion"] } } }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        { "name": "Get All Users", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/admin/users", "host": ["http://localhost:5000"], "path": ["api", "v1", "admin", "users"] } } },
+        { "name": "Update User", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Admin User\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/admin/users/{{id}}", "host": ["http://localhost:5000"], "path": ["api", "v1", "admin", "users", "{{id}}"] } } },
+        { "name": "Get All Orders", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/admin/orders", "host": ["http://localhost:5000"], "path": ["api", "v1", "admin", "orders"] } } },
+        { "name": "Update Order Status", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "body": { "mode": "raw", "raw": "{\n  \"status\": \"shipped\"\n}" }, "url": { "raw": "http://localhost:5000/api/v1/admin/orders/{{id}}/status", "host": ["http://localhost:5000"], "path": ["api", "v1", "admin", "orders", "{{id}}", "status"] } } },
+        { "name": "Process Refund", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/admin/orders/{{id}}/refund", "host": ["http://localhost:5000"], "path": ["api", "v1", "admin", "orders", "{{id}}", "refund"] } } },
+        { "name": "Dashboard Stats", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/admin/dashboard", "host": ["http://localhost:5000"], "path": ["api", "v1", "admin", "dashboard"] } } },
+        { "name": "Sales Report", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }, { "key": "Content-Type", "value": "application/json", "type": "text" } ], "url": { "raw": "http://localhost:5000/api/v1/admin/reports/sales", "host": ["http://localhost:5000"], "path": ["api", "v1", "admin", "reports", "sales"] } } }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "token", "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWRjNDgwMjc0MmMwYjUwNDc4MDBkNyIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUwOTc1OTg3LCJleHAiOjE3NTE1ODA3ODd9.QKPqe63Y9i845wutcO4uQux6by7RfKAlksuOazG4X00" },
+    { "key": "id", "value": "" },
+    { "key": "categoryId", "value": "" },
+    { "key": "categorySlug", "value": "" },
+    { "key": "productId", "value": "" },
+    { "key": "cartId", "value": "" },
+    { "key": "resettoken", "value": "" }
+  ]
+} 
