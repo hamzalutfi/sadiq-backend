@@ -50,7 +50,7 @@ app.use(helmet());
 // CORS
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3001",
+    origin: process.env.CLIENT_URL || "https://sadiq-front-3z6y.vercel.app/",
     credentials: true,
   })
 );

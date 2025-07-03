@@ -8,7 +8,7 @@ Create a `.env` file in the root directory with the following variables:
 # Server Configuration
 NODE_ENV=development
 PORT=5000
-CLIENT_URL=http://localhost:3000
+CLIENT_URL=https://sadiq-front-3z6y.vercel.app/
 
 # Database Configuration
 MONGODB_URI=mongodb://localhost:27017/sadiq-store
