@@ -50,10 +50,11 @@ app.use(helmet());
 // CORS
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "https://sadiq-front-3z6y.vercel.app/",
+    origin: process.env.CLIENT_URL || "https://sadiq-front-osh1.vercel.app/",
     credentials: true,
   })
 );
+console.log("Client URL", process.env.CLIENT_URL);
 
 // Compression
 app.use(compression());
