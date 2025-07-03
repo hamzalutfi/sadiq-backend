@@ -34,9 +34,9 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use('/public', (_, res, next) => {
-  res.set('Cross-Origin-Resource-Policy', 'cross-origin');
+app.use("/public", express.static(path.join(__dirname, "public")));
+app.use("/public", (_, res, next) => {
+  res.set("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
 
@@ -50,7 +50,7 @@ app.use(helmet());
 // CORS
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: process.env.CLIENT_URL || "http://localhost:3001",
     credentials: true,
   })
 );
